@@ -13,7 +13,7 @@
 //   return (
 //     <div>
 //       <UserCard />
-//       <Step />
+//       <Step />S
 //       <Announcements />
 //       <AssignmentsPage />
 //       <DiscussionBoard />
