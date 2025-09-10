@@ -1,5 +1,12 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Sidebar from "./Sidebar";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"], // include weights you’ll use
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,11 +25,21 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html>
+      <body className="bg-gray-50">
+        <main className="h-screen  flex">
+          <aside className="  lg:w-[300px] h-full max-h-screen overflow-y-auto">
+            <Sidebar />
+          </aside>
+
+          <section className="  w-full h-screen flex-1 overflow-y-hidden">
+            <header className="  "></header>
+
+            <div className="overflow-y-auto flex-1 max-h-[calc(100vh-102px)]">
+              {children}
+            </div>
+          </section>
+        </main>
       </body>
     </html>
   );
